@@ -1,16 +1,17 @@
 import json,os,html
 C=json.load(open('img/credits.json'))
+src=lambda c:c.get('source','Wikimedia Commons')
 EMAIL='austin.munoz@collinsparkenterprises.com'
 ADDR='2100 Park Ave Apt 304, Miami Beach, FL 33139'
 def credits():
-  li=''.join(f'<li>“<a href="{c["page"]}">{html.escape(c["file"].rsplit(".",1)[0])}</a>” by {html.escape(c["artist"])}, <a href="{c["licurl"]}">{c["license"]}</a>, via Wikimedia Commons. Resized and compressed.</li>' for c in C)
-  return f'<details class="credits"><summary>Photo credits</summary><ul>{li}</ul></details>'
+  li=''.join(f'<li>“<a href="{c["page"]}">{html.escape(c["file"])}</a>” by {html.escape(c["artist"])}, licensed <a href="{c["licurl"]}">{c["license"]}</a>, via {src(c)}. Resized and compressed.</li>' for c in C)
+  return f'<details class="credits"><summary>Photo credits</summary><ul>{li}</ul><p>Artworks shown: <em>ETERNITY NOW</em> by Sylvie Fleury (The Bass); <em>Miami Mountain</em> by Ugo Rondinone (Collins Park). Photos used under the licenses above; no endorsement by the photographers, artists or The Bass is implied.</p></details>'
 def page(path,title,body,hero=False):
   d='' if path=='' else '../'*path.count('/')+'../'
   root=d or './'
   head=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{title}</title><meta name="description" content="Collins Park Enterprises LLC, a Florida company that builds mobile apps."><link rel="stylesheet" href="{root}style.css"></head><body>
-<header class="nav"><a class="brand" href="{root}">Collins Park Enterprises</a><nav><a href="{root}#apps">Apps</a><a href="{root}#contact">Contact</a><a href="{root}terms/">Terms</a></nav></header>'''
+<title>{title}</title><meta name="description" content="Collins Park Enterprises LLC, a Florida company that builds mobile apps."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="{root}style.css"></head><body>
+<header class="nav{' over' if hero else ''}"><a class="brand" href="{root}">Collins Park Enterprises</a><nav><a href="{root}#apps">Apps</a><a href="{root}#contact">Contact</a><a href="{root}terms/">Terms</a></nav></header>'''
   foot=f'''<footer><div class="wrap"><p>© 2026 Collins Park Enterprises LLC · {ADDR} · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
 <p><a href="{root}privacy/lanesync/">LaneSync privacy</a> · <a href="{root}privacy/stridelab/">StrideLab privacy</a> · <a href="{root}privacy/trolley-tracker/">Trolley Tracker privacy</a> · <a href="{root}terms/">Terms</a></p>{credits()}</div></footer></body></html>'''
   out=os.path.join(path,'index.html') if path else 'index.html'
@@ -18,17 +19,20 @@ def page(path,title,body,hero=False):
   open(out,'w').write(head+body.replace('{root}',root)+foot)
 
 page('','Collins Park Enterprises LLC',f'''
-<section class="hero" style="background-image:linear-gradient(rgba(10,30,40,.45),rgba(10,30,40,.55)),url(img/hero-bass.jpg)"><div class="wrap"><h1>Collins Park Enterprises</h1><p>Small, careful mobile apps, made in Miami Beach.</p></div></section>
-<main class="wrap">
-<section class="split"><div><h2>About</h2><p>Collins Park Enterprises LLC is a Florida limited liability company that designs and develops mobile apps for iPhone, Apple Watch and Android. We build focused tools that do one job well, keep your data on your device wherever possible, and never show ads.</p><p>We are based in the Collins Park neighborhood of Miami Beach, steps from The Bass museum.</p></div><img src="img/collins-park.jpg" alt="Collins Park, Miami Beach, with lawns, trees and a stone bench" loading="lazy"></section>
-<section id="apps"><h2>Our apps</h2><div class="cards">
-<article><h3>LaneSync</h3><p>A sprint timer. Two phones, or a phone and an Apple Watch, time runners from the start signal to the finish line, with automatic finish detection.</p><a href="privacy/lanesync/">Privacy policy</a></article>
-<article><h3>StrideLab</h3><p>Sprint video analysis. Record or import a sprint and see a pose skeleton overlay, measurements and coaching tips. Optional StrideLab Pro subscriptions.</p><a href="privacy/stridelab/">Privacy policy</a></article>
-<article><h3>Trolley Tracker</h3><p>Shows the Miami Beach trolley in real time, with arrival countdowns for nearby stops and the city water taxi schedule.</p><a href="privacy/trolley-tracker/">Privacy policy</a></article>
-</div></section>
-<section class="split rev"><img src="img/bass-entrance.jpg" alt="Entrance of the Bass Museum of Art, Miami Beach" loading="lazy"><div id="contact"><h2>Contact</h2><p>Email: <a href="mailto:{EMAIL}">{EMAIL}</a></p><p>Mail: Collins Park Enterprises LLC<br>2100 Park Ave Apt 304<br>Miami Beach, FL 33139<br>United States</p></div></section>
-<img class="band" src="img/collins-park-2018.jpg" alt="Palm trees along Collins Park, Miami Beach" loading="lazy">
-</main>''')
+<section class="hero"><img class="hero-img" src="img/hero-eternity-now.jpg" alt="The Bass museum facade in Miami Beach with Sylvie Fleury's ETERNITY NOW sign under a blue sky"><div class="hero-shade"></div>
+<div class="wrap hero-text"><p class="kicker">Miami Beach · Florida</p><h1>Apps made under<br>the <span>sun</span>.</h1><p class="sub">Collins Park Enterprises builds small, beautifully focused mobile apps from a corner of Miami Beach between the museum and the sea.</p><a class="btn" href="#apps">See our apps</a></div></section>
+<div class="deco"></div>
+<main>
+<section class="wrap split"><div><p class="kicker">About us</p><h2>Built in Collins Park</h2><p>Collins Park Enterprises LLC is a Florida limited liability company that designs and develops mobile apps for iPhone, Apple Watch and Android. Our apps do one job well, keep your data on your device wherever possible, and never show ads.</p><p>Home base is the Collins Park neighborhood, steps from The Bass and Ugo Rondinone's <em>Miami Mountain</em>.</p></div>
+<figure class="photo tilt"><img src="img/miami-mountain.jpg" alt="Miami Mountain, Ugo Rondinone's stack of brightly painted boulders, in Collins Park"></figure></section>
+<section id="apps" class="apps"><div class="wrap"><p class="kicker">Our apps</p><h2>Three apps, made with care</h2><div class="cards">
+<article class="card c1"><img src="img/icons/lanesync.png" alt="LaneSync icon" width="88" height="88"><h3>LaneSync</h3><p>A sprint timer. Two phones, or a phone and an Apple Watch, time runners from the start signal to the finish line, with automatic finish detection.</p><a href="privacy/lanesync/">Privacy policy →</a></article>
+<article class="card c2"><img src="img/icons/stridelab.png" alt="StrideLab icon" width="88" height="88"><h3>StrideLab</h3><p>Sprint video analysis. Record or import a sprint and get a pose-skeleton overlay, measurements and coaching tips. StrideLab Pro subscriptions are optional.</p><a href="privacy/stridelab/">Privacy policy →</a></article>
+<article class="card c3"><img src="img/icons/trolley-tracker.png" alt="Trolley Tracker icon" width="88" height="88"><h3>Trolley Tracker</h3><p>The Miami Beach trolley in real time, with arrival countdowns for nearby stops and the city water taxi schedule.</p><a href="privacy/trolley-tracker/">Privacy policy →</a></article>
+</div></div></section>
+<section class="wrap gallery"><figure class="photo"><img src="img/bass-lawn.jpg" alt="Palm-lined lawn of Collins Park leading to The Bass museum"></figure><figure class="photo"><img src="img/miami-mountain-2.jpg" alt="Miami Mountain sculpture against a blue sky with palm trees"></figure></section>
+<section id="contact" class="wrap contact"><div class="contact-card"><p class="kicker">Say hello</p><h2>Contact</h2><p class="big"><a href="mailto:{EMAIL}">{EMAIL}</a></p><p>Collins Park Enterprises LLC<br>2100 Park Ave Apt 304<br>Miami Beach, FL 33139, United States</p></div></section>
+</main>''',hero=True)
 
 def policy(slug,name,eff,sections):
   body=f'<main class="wrap doc"><h1>{name} Privacy Policy</h1><p class="muted">Effective {eff}</p>'+sections+f'''

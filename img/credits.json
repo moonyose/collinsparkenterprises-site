@@ -1,34 +1,6 @@
 [
- {
-  "key": "hero-bass",
-  "file": "Miami Beach - Bass Museum of Art Building.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Miami_Beach_-_Bass_Museum_of_Art_Building.jpg",
-  "artist": "P. Hughes",
-  "license": "CC BY 4.0",
-  "licurl": "https://creativecommons.org/licenses/by/4.0"
- },
- {
-  "key": "bass-entrance",
-  "file": "Miami Beach - Bass Museum of Art entrance.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Miami_Beach_-_Bass_Museum_of_Art_entrance.jpg",
-  "artist": "P. Hughes",
-  "license": "CC BY 4.0",
-  "licurl": "https://creativecommons.org/licenses/by/4.0"
- },
- {
-  "key": "collins-park",
-  "file": "Collins Park (Miami Beach, Florida) 1.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Collins_Park_(Miami_Beach,_Florida)_1.jpg",
-  "artist": "Tamanoeconomico",
-  "license": "CC BY-SA 4.0",
-  "licurl": "https://creativecommons.org/licenses/by-sa/4.0"
- },
- {
-  "key": "collins-park-2018",
-  "file": "Miami Beach Florida - Collins Park, Jan 2018 - 01.jpg",
-  "page": "https://commons.wikimedia.org/wiki/File:Miami_Beach_Florida_-_Collins_Park,_Jan_2018_-_01.jpg",
-  "artist": "Infrogmation of New Orleans",
-  "license": "CC BY 2.0",
-  "licurl": "https://creativecommons.org/licenses/by/2.0"
- }
+ {"key":"hero-eternity-now","file":"Bass Museum of Art (ETERNITY NOW by Sylvie Fleury)","page":"https://www.flickr.com/photos/82538566@N00/32738382760","artist":"Jim Bowen","license":"CC BY 2.0","licurl":"https://creativecommons.org/licenses/by/2.0/","source":"Flickr"},
+ {"key":"miami-mountain","file":"Miami Mountain (2016) by Ugo Rondinone, Collins Park","page":"https://www.flickr.com/photos/25955895@N03/32690999064","artist":"Phillip Pessar","license":"CC BY 2.0","licurl":"https://creativecommons.org/licenses/by/2.0/","source":"Flickr"},
+ {"key":"miami-mountain-2","file":"Miami Mountain","page":"https://www.flickr.com/photos/53136684@N00/49625136566","artist":"deldevries","license":"CC BY-SA 2.0","licurl":"https://creativecommons.org/licenses/by-sa/2.0/","source":"Flickr"},
+ {"key":"bass-lawn","file":"Bass Museum Miami Beach","page":"https://www.flickr.com/photos/25955895@N03/33534813245","artist":"Phillip Pessar","license":"CC BY 2.0","licurl":"https://creativecommons.org/licenses/by/2.0/","source":"Flickr"}
 ]
