@@ -1,0 +1,34 @@
+[
+ {
+  "key": "hero-bass",
+  "file": "Miami Beach - Bass Museum of Art Building.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Miami_Beach_-_Bass_Museum_of_Art_Building.jpg",
+  "artist": "P. Hughes",
+  "license": "CC BY 4.0",
+  "licurl": "https://creativecommons.org/licenses/by/4.0"
+ },
+ {
+  "key": "bass-entrance",
+  "file": "Miami Beach - Bass Museum of Art entrance.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Miami_Beach_-_Bass_Museum_of_Art_entrance.jpg",
+  "artist": "P. Hughes",
+  "license": "CC BY 4.0",
+  "licurl": "https://creativecommons.org/licenses/by/4.0"
+ },
+ {
+  "key": "collins-park",
+  "file": "Collins Park (Miami Beach, Florida) 1.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Collins_Park_(Miami_Beach,_Florida)_1.jpg",
+  "artist": "Tamanoeconomico",
+  "license": "CC BY-SA 4.0",
+  "licurl": "https://creativecommons.org/licenses/by-sa/4.0"
+ },
+ {
+  "key": "collins-park-2018",
+  "file": "Miami Beach Florida - Collins Park, Jan 2018 - 01.jpg",
+  "page": "https://commons.wikimedia.org/wiki/File:Miami_Beach_Florida_-_Collins_Park,_Jan_2018_-_01.jpg",
+  "artist": "Infrogmation of New Orleans",
+  "license": "CC BY 2.0",
+  "licurl": "https://creativecommons.org/licenses/by/2.0"
+ }
+]
