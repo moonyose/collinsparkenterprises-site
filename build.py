@@ -2,7 +2,6 @@ import json,os,html
 C=json.load(open('img/credits.json'))
 src=lambda c:c.get('source','Wikimedia Commons')
 EMAIL='austin.munoz@collinsparkenterprises.com'
-ADDR='2100 Park Ave Apt 304, Miami Beach, FL 33139'
 def credits():
   li=''.join(f'<li>“<a href="{c["page"]}">{html.escape(c["file"])}</a>” by {html.escape(c["artist"])}, licensed <a href="{c["licurl"]}">{c["license"]}</a>, via {src(c)}. Resized and compressed.</li>' for c in C)
   return f'<details class="credits"><summary>Photo credits</summary><ul>{li}</ul><p>Artworks shown: <em>ETERNITY NOW</em> by Sylvie Fleury (The Bass); <em>Miami Mountain</em> by Ugo Rondinone (Collins Park). Photos used under the licenses above; no endorsement by the photographers, artists or The Bass is implied.</p></details>'
@@ -10,9 +9,9 @@ def page(path,title,body,hero=False):
   d='' if path=='' else '../'*path.count('/')+'../'
   root=d or './'
   head=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{title}</title><meta name="description" content="Collins Park Enterprises LLC, a Florida company that builds mobile apps."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="{root}style.css"></head><body>
+<title>{title}</title><meta name="description" content="Collins Park Enterprises LLC, a Florida company that builds mobile apps."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Josefin+Sans:wght@300;400;600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="{root}style.css"></head><body>
 <header class="nav{' over' if hero else ''}"><a class="brand" href="{root}">Collins Park Enterprises</a><nav><a href="{root}#apps">Apps</a><a href="{root}#contact">Contact</a><a href="{root}terms/">Terms</a></nav></header>'''
-  foot=f'''<footer><div class="wrap"><p>© 2026 Collins Park Enterprises LLC · {ADDR} · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
+  foot=f'''<footer><div class="wrap"><p>© 2026 Collins Park Enterprises LLC · Miami Beach, Florida · <a href="mailto:{EMAIL}">{EMAIL}</a></p>
 <p><a href="{root}privacy/lanesync/">LaneSync privacy</a> · <a href="{root}privacy/stridelab/">StrideLab privacy</a> · <a href="{root}privacy/trolley-tracker/">Trolley Tracker privacy</a> · <a href="{root}terms/">Terms</a></p>{credits()}</div></footer></body></html>'''
   out=os.path.join(path,'index.html') if path else 'index.html'
   if path: os.makedirs(path,exist_ok=True)
@@ -20,23 +19,23 @@ def page(path,title,body,hero=False):
 
 page('','Collins Park Enterprises LLC',f'''
 <section class="hero"><img class="hero-img" src="img/hero-eternity-now.jpg" alt="The Bass museum facade in Miami Beach with Sylvie Fleury's ETERNITY NOW sign under a blue sky"><div class="hero-shade"></div>
-<div class="wrap hero-text"><p class="kicker">Miami Beach · Florida</p><h1>Apps made under<br>the <span>sun</span>.</h1><p class="sub">Collins Park Enterprises builds small, beautifully focused mobile apps from a corner of Miami Beach between the museum and the sea.</p><a class="btn" href="#apps">See our apps</a></div></section>
-<div class="deco"></div>
+<div class="wrap hero-text"><p class="kicker">Miami Beach · Florida</p><h1>Thoughtful apps,<br><em>made by the sea</em></h1><p class="sub">Collins Park Enterprises builds small, beautifully focused mobile apps from a corner of Miami Beach between the museum and the sea.</p><a class="btn light" href="#apps">Discover our apps</a></div></section>
+<div class="deco"><span></span><i>◆</i><span></span></div>
 <main>
 <section class="wrap split"><div><p class="kicker">About us</p><h2>Built in Collins Park</h2><p>Collins Park Enterprises LLC is a Florida limited liability company that designs and develops mobile apps for iPhone, Apple Watch and Android. Our apps do one job well, keep your data on your device wherever possible, and never show ads.</p><p>Home base is the Collins Park neighborhood, steps from The Bass and Ugo Rondinone's <em>Miami Mountain</em>.</p></div>
 <figure class="photo tilt"><img src="img/miami-mountain.jpg" alt="Miami Mountain, Ugo Rondinone's stack of brightly painted boulders, in Collins Park"></figure></section>
-<section id="apps" class="apps"><div class="wrap"><p class="kicker">Our apps</p><h2>Three apps, made with care</h2><div class="cards">
-<article class="card c1"><img src="img/icons/lanesync.png" alt="LaneSync icon" width="88" height="88"><h3>LaneSync</h3><p>A sprint timer. Two phones, or a phone and an Apple Watch, time runners from the start signal to the finish line, with automatic finish detection.</p><a href="privacy/lanesync/">Privacy policy →</a></article>
-<article class="card c2"><img src="img/icons/stridelab.png" alt="StrideLab icon" width="88" height="88"><h3>StrideLab</h3><p>Sprint video analysis. Record or import a sprint and get a pose-skeleton overlay, measurements and coaching tips. StrideLab Pro subscriptions are optional.</p><a href="privacy/stridelab/">Privacy policy →</a></article>
-<article class="card c3"><img src="img/icons/trolley-tracker.png" alt="Trolley Tracker icon" width="88" height="88"><h3>Trolley Tracker</h3><p>The Miami Beach trolley in real time, with arrival countdowns for nearby stops and the city water taxi schedule.</p><a href="privacy/trolley-tracker/">Privacy policy →</a></article>
+<section id="apps" class="apps"><div class="wrap"><p class="kicker">Our apps</p><h2>Three apps, made with care</h2><p class="intro">Each one does a single job beautifully, keeps your data on your device, and never shows ads.</p><div class="cards">
+<article class="card c1"><img src="img/icons/lanesync.png" alt="LaneSync icon" width="88" height="88"><h3>LaneSync</h3><p>A sprint timer. Two phones, or a phone and an Apple Watch, time runners from the start signal to the finish line, with automatic finish detection.</p><a href="privacy/lanesync/">Privacy policy</a></article>
+<article class="card c2"><img src="img/icons/stridelab.png" alt="StrideLab icon" width="88" height="88"><h3>StrideLab</h3><p>Sprint video analysis. Record or import a sprint and get a pose-skeleton overlay, measurements and coaching tips. StrideLab Pro subscriptions are optional.</p><a href="privacy/stridelab/">Privacy policy</a></article>
+<article class="card c3"><img src="img/icons/trolley-tracker.png" alt="Trolley Tracker icon" width="88" height="88"><h3>Trolley Tracker</h3><p>The Miami Beach trolley in real time, with arrival countdowns for nearby stops and the city water taxi schedule.</p><a href="privacy/trolley-tracker/">Privacy policy</a></article>
 </div></div></section>
 <section class="wrap gallery"><figure class="photo"><img src="img/bass-lawn.jpg" alt="Palm-lined lawn of Collins Park leading to The Bass museum"></figure><figure class="photo"><img src="img/miami-mountain-2.jpg" alt="Miami Mountain sculpture against a blue sky with palm trees"></figure></section>
-<section id="contact" class="wrap contact"><div class="contact-card"><p class="kicker">Say hello</p><h2>Contact</h2><p class="big"><a href="mailto:{EMAIL}">{EMAIL}</a></p><p>Collins Park Enterprises LLC<br>2100 Park Ave Apt 304<br>Miami Beach, FL 33139, United States</p></div></section>
+<section id="contact" class="wrap contact"><div class="contact-card"><p class="kicker">Say hello</p><h2>Contact</h2><p class="big"><a href="mailto:{EMAIL}">{EMAIL}</a></p><p>We read every message and reply by email, usually within two business days.</p></div></section>
 </main>''',hero=True)
 
 def policy(slug,name,eff,sections):
   body=f'<main class="wrap doc"><h1>{name} Privacy Policy</h1><p class="muted">Effective {eff}</p>'+sections+f'''
-<h2>Who we are and how to contact us</h2><p>{name} is published by Collins Park Enterprises LLC, a Florida limited liability company ("we", "us"), {ADDR}. Questions about this policy or your data: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
+<h2>Who we are and how to contact us</h2><p>{name} is published by Collins Park Enterprises LLC, a Florida limited liability company ("we", "us"). The best way to reach us is by email. Questions about this policy or your data: <a href="mailto:{EMAIL}">{EMAIL}</a>.</p>
 <h2>Your rights</h2><p>Depending on where you live (for example under the GDPR or U.S. state privacy laws), you may have rights to access, correct, delete or object to the processing of personal data about you. Because the app keeps your data on your device, you can exercise most of these directly in the app. For anything else, email us and we will respond within the time required by law.</p>
 <h2>Children</h2><p>{name} is not directed to children under 13, and we do not knowingly collect personal information from children.</p>
 <h2>Security</h2><p>Data stays in the app's storage on your device and is protected by your device's own security. No method of storage or transmission is completely secure, but we do not hold a copy of your data.</p>
@@ -99,4 +98,4 @@ page('terms','Terms of Use · Collins Park Enterprises',f'''<main class="wrap do
 <h2>Your content</h2><p>Videos, names and other content you create stay yours and, as described in each app's privacy policy, stay on your devices. Make sure you have permission to record and store the people you film, including the consent of a parent or guardian for minors where required.</p>
 <h2>Disclaimer and limitation of liability</h2><p>The apps are provided "as is" and "as available", without warranties of any kind, to the extent permitted by law. To the extent permitted by law, we are not liable for indirect, incidental, special or consequential damages, or for loss of data, and our total liability is limited to the amount you paid for the app or subscription in the 12 months before the claim.</p>
 <h2>Governing law</h2><p>These terms are governed by the laws of the State of Florida, United States, without regard to conflict-of-laws rules, except where your local consumer law gives you rights that cannot be waived.</p>
-<h2>Changes and contact</h2><p>We may update these terms and will post the new version here with a new effective date. Questions: <a href="mailto:{EMAIL}">{EMAIL}</a>, Collins Park Enterprises LLC, {ADDR}.</p></main>''')
+<h2>Changes and contact</h2><p>We may update these terms and will post the new version here with a new effective date. Questions: <a href="mailto:{EMAIL}">{EMAIL}</a>. We handle all inquiries by email.</p></main>''')
